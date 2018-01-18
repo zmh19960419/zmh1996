@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	
+	<title>Document</title>
+		<script type="text/javascript">
+ 	
+	 (function(){
+	 	var html=document.documentElement;
+ 		var htmlw=html.getBoundingClientRect().width;
+		html.style.fontSize=htmlw/15+'px';
+	})()
+
+</script>
+	<style type="text/css">
+		div{
+			width: 5rem;
+			height: 5rem;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		
+	</div>
+</body>
+<script type="text/javascript">
+	var div=document.querySelector('div');
+	div.addEventListener('touchstart',function(){
+		console.log(1)
+	})
+	div.addEventListener('touchmove',function(){
+		alert(2)
+	})
+	div.addEventListener('touchend',function(){
+		alert(3)
+	})
+</script>
+</html>
