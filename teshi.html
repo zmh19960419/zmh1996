@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style>
+p{
+	opacity: 0;
+	transition: all 1s;
+}
+</style>
+</head>
+<body>
+	<P>见</P>
+	<p>惊艳</p>
+	<p>目流连</p>
+	<p>再难思迁</p>
+	<p>踌躇欲向前</p>
+	<p>只恐天上人间</p>
+	<p>悲欢喜怒一线牵</p>
+	<p>循环往复恨此心坚</p>
+	<p>花开花落转眼已三年</p>
+	<p>天人合一处垂首对漪涟</p>
+	<p>思或淡情未移口三缄</p>
+	<p>燕去燕归沧海桑田</p>
+	<p>倘注定有分无缘</p>
+	<p>亦感蒙赐初面</p>
+	<p>纵此生不见</p>
+	<p>平安惟愿</p>
+	<p>若得闲</p>
+	<p>仍念</p>
+	<p>歉</p>
+	<button id="btn">点击</button>
+	<script src="jquery.js"></script>
+	<script>
+		//1编写一个函数把二维数组变为一维数组（如[[1,2],[3,4]]变为[1,2,3,4]）
+		// function change(arr){
+		// 	var newarr=[];
+			// for (var i = 0; i < arr.length; i++) {
+			// 	newarr=newarr.concat(arr[i]);
+			// }
+		// 	newarr=Array.prototype.concat.apply(newarr,arr)
+		// 	return newarr;
+		// }
+		//2.编写一个函数参数两个一个字符串，一个整数，可以吧这个字符串重复整数次(如abc,3,返回abcabcabc)
+		
+		// function  hanshu(a,b){
+		// 	var str="";
+		// 	while(b>0){
+		// 		str+=a;
+		// 		b--;
+		// 	}
+		// 	return  str;
+		// }
+		//3.编写一个函数，使对象变数组 如 （obj={a:1,b:2,c:3} 变为 [1,2,3]）
+	
+		// function duixiang(obj){
+		// 	var arr=[];
+		// 	for (key in obj){
+		// 			arr.push(obj[key]);
+		// 	}
+		// 	return arr;
+
+		// 	}
+
+		//4.,编写一段程序 显示一句话，隔一秒显示第二句话，依次显示五句话,然后第五句话消失，隔一秒第四句消失，依次类推，直到第一句消失.
+		//css3   延迟
+		var len=$("p").length;
+		$("p").each(function(index){
+			$(this).css("transitionDelay",index*1000+"ms");
+		})
+		$("#btn").click(function(){
+			$("p").css("opacity",1);
+		})
+		$("p").eq(len-1).on("webkitTransitionEnd",function(){  //webkitTransitionEnd  表示变化结束,
+			$("p").each(function(index){
+				$(this).css("transitionDelay",(len-index)*1000+"ms");
+			})
+			$("p").css("opacity",0);
+		})
+
+
+			//原生js
+			// var flag=false;
+			// $("#btn").click(function(){
+			// 	var i=0;
+			// 	var timer=setInterval(function(){
+			// 		if (i>$("p").length-1) {
+			// 			flag=!falg;
+			// 		}
+			// 		if (flag) {
+			// 			$("p").eq(i).css("display","none");
+			// 			i--;
+			// 			if (i<0) {
+			// 				clearInterval(timer);
+			// 			}
+			// 		}
+			// 		else{
+			// 			$("p").eq(i).css("display","block");
+			// 			i++;
+			// 		}
+			// 	},1000);
+			// })
+		
+				
+	</script>
+</body>
+</html>
